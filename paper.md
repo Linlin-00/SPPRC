@@ -72,3 +72,19 @@ dynamic programming(动态规划) which has been used extensively, Lagrangean re
 动态规划：从起始点开始，通过一个一个的探索所有的可行方向来构建新的路径。它的效率取决于，识别和丢弃不能构建帕累托最优路径集或难以扩展成帕累托路径的能力。
 为了提高效率，动态规划算法中的路径采用标号(label)编码。
 共享同一前缀的路径用一条表示它们共同前缀的单链表示，使用树形数据结构来标注路径。除了编码路径，标签存储一个代表性的资源向量(resource vector)。
+
+
+VRP介绍：
+https://wiki.mbalib.com/wiki/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98
+多目标：
+https://blog.csdn.net/u011622208/article/details/64440843
+遗传算法求解VRP：
+https://zhuanlan.zhihu.com/p/125779424?utm_source=wechat_session
+
+论文：
+基于客户重要度的混合时间窗车辆路径问题研究
+
+
+
+# The time-dependent pickup and delivery problem with time windows
+本文研究带有时间依赖的取货和时间窗口发货问题，目的在于在操作灵活性的两个维度下优化运输公司的服务。首先，考虑运输公司最大化其利润来响应运输需求；其次，运输公司通过告诉司机何时上路来充分利用交通顺畅的时间。提出了一种基于分支定价的精确方法来解决该系列问题，其中的列是由定制的标记算法(tailored labeling algorithm)生成的。
