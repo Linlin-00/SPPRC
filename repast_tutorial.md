@@ -106,22 +106,97 @@ REPAST_HPC_LIB=-lrepast_hpc-2.3.0
 ./Demo_00.exe: error while loading shared libraries: librepast_hpc-2.3.0.so: cannot open shared object file: No such file or directory
 
 ```
-解决如下：
+解决过程：
+先用
 ```
 sudo gedit /etc/ld.so.conf
 include /home/dll/sfw/repast_hpc-2.3.0/lib
 sudo ldconfig
 ```
+不成功
+
+参考：https://blog.csdn.net/qing101hua/article/details/53086318
+```
+sudo gedit ~/.bashrc
+添加
+export LD_LIBRARY_PATH="/home/dll/sfw/repast_hpc-2.3.0/lib/:$LD_LIBRARY_PATH"
+
+```
 **2.**
 ```
 ./Demo_00.exe: error while loading shared libraries: libboost_mpi-mt.so.1.61.0: cannot open shared object file: No such file or directory
 ```
-使用1的方法无效，
+
 解决如下：
 ```
+sudo gedit ~/.bashrc
+添加
+export LD_LIBRARY_PATH="/home/dll/sfw/Boost/Boost_1.61/lib/:$LD_LIBRARY_PATH"
 
 ```
 
+**3.** 报错如下
+```
+[ubuntu:03716] *** Process received signal ***
+[ubuntu:03716] Signal: Segmentation fault (11)
+[ubuntu:03716] Signal code: Address not mapped (1)
+[ubuntu:03716] Failing at address: 0x44000098
+[ubuntu:03716] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x354c0)[0x7fb797bde4c0]
+[ubuntu:03716] [ 1] /usr/lib/libmpi.so.12(PMPI_Comm_set_errhandler+0x50)[0x7fb798562470]
+[ubuntu:03716] [ 2] /home/dll/sfw/Boost/Boost_1.61/lib/libboost_mpi-mt.so.1.61.0(_ZN5boost3mpi11environmentC2ERiRPPcb+0x51)[0x7fb798a0e6c1]
+[ubuntu:03716] [ 3] ./Demo_00.exe[0x40865e]
+[ubuntu:03716] [ 4] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7fb797bc9840]
+[ubuntu:03716] [ 5] ./Demo_00.exe[0x408559]
+[ubuntu:03716] *** End of error message ***
+[ubuntu:03714] *** Process received signal ***
+[ubuntu:03714] Signal: Segmentation fault (11)
+[ubuntu:03714] Signal code: Address not mapped (1)
+[ubuntu:03714] Failing at address: 0x44000098
+[ubuntu:03715] *** Process received signal ***
+[ubuntu:03715] Signal: Segmentation fault (11)
+[ubuntu:03715] Signal code: Address not mapped (1)
+[ubuntu:03715] Failing at address: 0x44000098
+[ubuntu:03715] [ 0] [ubuntu:03717] *** Process received signal ***
+[ubuntu:03717] Signal: Segmentation fault (11)
+[ubuntu:03717] Signal code: Address not mapped (1)
+[ubuntu:03717] Failing at address: 0x44000098
+[ubuntu:03717] [ 0] [ubuntu:03714] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x354c0)[0x7ff7f46374c0]
+[ubuntu:03714] [ 1] /lib/x86_64-linux-gnu/libc.so.6(+0x354c0)[0x7f9aa42a84c0]
+[ubuntu:03715] [ 1] /lib/x86_64-linux-gnu/libc.so.6(+0x354c0)[0x7f127ffd24c0]
+/usr/lib/libmpi.so.12(PMPI_Comm_set_errhandler+0x50)[0x7ff7f4fbb470]
+[ubuntu:03714] [ 2] /usr/lib/libmpi.so.12(PMPI_Comm_set_errhandler+0x50)[0x7f9aa4c2c470]
+[ubuntu:03715] [ 2] /home/dll/sfw/Boost/Boost_1.61/lib/libboost_mpi-mt.so.1.61.0(_ZN5boost3mpi11environmentC2ERiRPPcb+0x51)[0x7ff7f54676c1]
+[ubuntu:03714] [ 3] ./Demo_00.exe[0x40865e]
+[ubuntu:03714] [ 4] /home/dll/sfw/Boost/Boost_1.61/lib/libboost_mpi-mt.so.1.61.0(_ZN5boost3mpi11environmentC2ERiRPPcb+0x51)[0x7f9aa50d86c1]
+[ubuntu:03715] [ 3] ./Demo_00.exe[0x40865e]
+[ubuntu:03715] [ 4] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7ff7f4622840]
+[ubuntu:03714] [ 5] ./Demo_00.exe[0x408559]
+[ubuntu:03714] *** End of error message ***
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7f9aa4293840]
+[ubuntu:03715] [ 5] ./Demo_00.exe[0x408559]
+[ubuntu:03715] *** End of error message ***
+[ubuntu:03717] [ 1] /usr/lib/libmpi.so.12(PMPI_Comm_set_errhandler+0x50)[0x7f1280956470]
+[ubuntu:03717] [ 2] /home/dll/sfw/Boost/Boost_1.61/lib/libboost_mpi-mt.so.1.61.0(_ZN5boost3mpi11environmentC2ERiRPPcb+0x51)[0x7f1280e026c1]
+[ubuntu:03717] [ 3] ./Demo_00.exe[0x40865e]
+[ubuntu:03717] [ 4] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7f127ffbd840]
+[ubuntu:03717] [ 5] ./Demo_00.exe[0x408559]
+[ubuntu:03717] *** End of error message ***
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 3714 RUNNING AT ubuntu
+=   EXIT CODE: 139
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Segmentation fault (signal 11)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+```
+解决：
+```
+明天试试将整个repastHPC及其依赖全部重装
+```
 ## Step_05: Repast Process（进程）
 Repastprocess是最基本的实例(instance)元素。
 * 创建及初始化Repastprocess代码如下：
