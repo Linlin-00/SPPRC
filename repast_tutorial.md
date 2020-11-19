@@ -95,8 +95,8 @@ REPAST_HPC_LIB=-lrepast_hpc-2.3.0
 
 * 使用编译+运行C++:
   ```
-  make RepastHPC_Demo_xx_Step_xx
-  mpirun -n 4 ./Demo.exe
+  make RepastHPC_Demo_00_Step_04
+  mpirun -n 4 ./Demo_00.exe
   ```
 
   
