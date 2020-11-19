@@ -15,7 +15,7 @@ E-FSMFTW consists of
 C：a set of customers 一系列客户（一系列只需单人完成的任务点）
 F：a set of recharging stations一系列充电站（一系列需要多人完成的任务点，但是不涉及需要同时完成，或者需要先后的任务）
 a depot node 一个仓储点（起点/终点）
-k different vehicle types k种卡车类型（k种有不同技能的员工）
+k different vehicle types k种卡车类型（k种受辐照影响不同的员工）
 N 是客户节点C和虚拟节点F'的集合，F'为了对多次访问充电站计数
 种类k卡车最大装载量和当前装载量（k类人的任务能力和null）
 种类k卡车最大能源总量和当前能源量（k类人的最大受辐射剂量和当前受辐射剂量）
