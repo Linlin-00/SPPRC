@@ -88,3 +88,14 @@ https://zhuanlan.zhihu.com/p/125779424?utm_source=wechat_session
 
 # The time-dependent pickup and delivery problem with time windows
 本文研究带有时间依赖的取货和时间窗口发货问题，目的在于在操作灵活性的两个维度下优化运输公司的服务。首先，考虑运输公司最大化其利润来响应运输需求；其次，运输公司通过告诉司机何时上路来充分利用交通顺畅的时间。提出了一种基于分支定价的精确方法来解决该系列问题，其中的列是由定制的标记算法(tailored labeling algorithm)生成的。
+
+
+
+# mine
+The increasing need for safe, inexpensive and quick search, combined with the development of unmanned equipments, has made search missions by a team of UAVs (unmanned aerial vehicles) in the spotlight.
+The UAVs system searching task focuses on intelligent independent multi-robot systems that make real-time action decisions according to their own surrounding environments, as well as achieve the same high-level goal with collective efforts.
+Navigating in unkonwn environments safely is the underlying work which can support multi-robot systems for more complex tasks.
+However, in unknown environments, frequently real-time interactions with neighbor UAVs and environment are inevitable for collision avoidance.
+Furthermore, the task cooperation and collision avoid between UAVs are hard to balance.
+This paper proposed a method that UAVs can provide assistances to surrounding UAVs by informing neighbors the status information of them. 
+This kind of status information contains ambient infromation and perceptions of the task which are transfered to reward for easy and convenient transform.

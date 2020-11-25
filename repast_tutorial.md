@@ -12,7 +12,19 @@
 `sudo apt-get install zlib*`
 (2)`./install.sh rhpc`
 出现错误:`error: cannot not find the flags to link with Boost mpi`
-解决方法:`sudo apt-get install libboost-all-dev`
+解决方法:
+`./install.sh boost`这一步骤之前，先`sudo apt-get install libboost-all-dev`，再依次执行`./install.sh boost`和`./install.sh rhpc`。
+若`sudo apt-get install libboost-all-dev`之前已经进行了`./install.sh boost`步骤，可以删掉~/sfw/boost，然后按上述步骤顺序执行一遍即可。
+
+出现错误:
+```
+checking for mpicc... no
+checking for mpixlc... no
+checking for bgclang... no
+configure: error: in `/home/dll/repast_hpc-2.3.0':
+configure: error: no acceptable C compiler found in $PATH
+```
+解决方法:`gcc -v`确认gcc是已经安装的，重新启动虚拟机
 
 **运行zombie和rumor:**
 在编译运行之前，需要修改MANUAL_INSTALL中的makefile，将其中的路径改成自己电脑上的安装路径,并把repast的版本改成自己使用的版本：
@@ -29,11 +41,11 @@ NETCDF_CXX_INCLUDE_DIR=/home/dll/sfw/NetCDF-cxx/include
 NETCDF_CXX_LIB_DIR=/home/dll/sfw/NetCDF-cxx/lib
 CURL_INCLUDE_DIR=/home/dll/sfw/CURL/include
 CURL_LIB_DIR=/home/dll/sfw/CURL/lib
-INSTALL_DIR=/home/dll/repast_hpc-2.3.0
+INSTALL_DIR=/home/dll/sfw/repast_hpc-2.3.0
 
 REPAST_VERSION=2.3
 ```
-改好之后，`make -f Makefile all`在bin文件夹中生成可执行文件，运行如下：
+改好之后，在MANUAL_INSTALL下执行命令`make -f Makefile all`，将在/home/dll/sfw/repast_hpc-2.3.0/bin文件夹中生成可执行文件，cd至该文件夹运行如下：
 Zombies:
 ```
 	mpirun -n 4 ./zombie_model config.props model.props
@@ -42,6 +54,8 @@ Rumor:
 ```
 	mpirun -n 4 ./rumor_model config.props model.props
 ```
+
+注：该make编译运行方法执行zombie和rumor时间长，步骤麻烦。
 **MPI编译+运行C++：**
   ``` 
   mpicxx -o Demo_00 Demo_00.cpp
@@ -89,7 +103,7 @@ BOOST_LIB_DIR=-L/home/dll/sfw/Boost/Boost_1.61/lib/
 BOOST_LIBS=-lboost_mpi-mt -lboost_serialization-mt -lboost_system-mt -lboost_filesystem-mt
 
 REPAST_HPC_INCLUDE=-I/home/dll/sfw/repast_hpc-2.3.0/include/
-REPAST_HPC_LIB_DIR=-L/home/dll/sfw/repast_hpc-2.3.0/lib/
+REPAST_HPC_LIB_DIR=-L/home/dll/sfw/repast_hpc-2.3.0/lib
 REPAST_HPC_LIB=-lrepast_hpc-2.3.0
 ```
 
@@ -107,15 +121,15 @@ REPAST_HPC_LIB=-lrepast_hpc-2.3.0
 
 ```
 解决过程：
-先用
+方法1：
 ```
 sudo gedit /etc/ld.so.conf
 include /home/dll/sfw/repast_hpc-2.3.0/lib
 sudo ldconfig
 ```
-不成功
-
+方法2：
 参考：https://blog.csdn.net/qing101hua/article/details/53086318
+
 ```
 sudo gedit ~/.bashrc
 添加
@@ -127,7 +141,7 @@ export LD_LIBRARY_PATH="/home/dll/sfw/repast_hpc-2.3.0/lib/:$LD_LIBRARY_PATH"
 ./Demo_00.exe: error while loading shared libraries: libboost_mpi-mt.so.1.61.0: cannot open shared object file: No such file or directory
 ```
 
-解决如下：
+解决如下（类似上一个）：
 ```
 sudo gedit ~/.bashrc
 添加
@@ -194,9 +208,12 @@ This typically refers to a problem with your application.
 Please see the FAQ page for debugging suggestions
 ```
 解决：
-```
-明天试试将整个repastHPC及其依赖全部重装
-```
+卸载掉系统本身的openmpi
+`sudo apt-get remove  libopenmpi-dev openmpi-bin`
+`which mpicxx`查看mpicxx路径为
+`/home/dll/sfw/MPICH/bin//mpicxx`
+修改SRC/env文件中做相应修改`MPICXX=/home/dll/sfw/MPICH/bin//mpicxx -std=c++11`
+
 ## Step_05: Repast Process（进程）
 Repastprocess是最基本的实例(instance)元素。
 * 创建及初始化Repastprocess代码如下：
