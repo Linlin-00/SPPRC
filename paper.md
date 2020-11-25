@@ -94,11 +94,9 @@ https://zhuanlan.zhihu.com/p/125779424?utm_source=wechat_session
 # mine
 ## abstract
 The increasing need for safe, inexpensive and quick search, combined with the development of unmanned equipments, has made search missions by a team of UAVs (unmanned aerial vehicles) in the spotlight.
-The UAVs system searching task focuses on intelligent independent multi-robot systems that make real-time action decisions according to their own surrounding environments, as well as achieve the same high-level goal with collective efforts.
-Navigating in unkonwn environments safely is the underlying work which can support multi-robot systems for more complex tasks.
-However, in unknown environments, frequently real-time interactions with neighbor UAVs and environment are inevitable for collision avoidance.
-Furthermore, the task cooperation and collision avoid between UAVs are hard to balance.
-This paper proposed a method that UAVs can provide assistances to surrounding UAVs by informing neighbors the status information of them. 
-This kind of status information contains ambient infromation and perceptions of the task which are transfered to reward for easy and convenient transform.
+When avaliable information of search regions are lacking, UAVs need to make real-time action decisions according to surrounding environments they have perceived. Navigating in unkonwn environments safely is counted as the underlying work which can support the UAVs team for more complex tasks. However, frequently real-time interactions with neighbor UAVs and environments are inevitable for collision avoidance. The task cooperation and collision avoid between UAVs are also hard to balance. In this paper, we proposed a method that UAVs can provide assistances to surrounding UAVs by spreading the status information of them. This kind of status information contains ambient infromation and perceptions of the task which are transfered to reward for easy and convenient transform. Individuals utilize inter-neighbor interactions to achieve the same high-level goal, as well as result in an intelligent independent multirobot system. 
+
+with collective efforts.
+
 
 ## introduction
