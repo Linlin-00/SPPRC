@@ -92,6 +92,7 @@ https://zhuanlan.zhihu.com/p/125779424?utm_source=wechat_session
 
 
 # mine
+## abstract
 The increasing need for safe, inexpensive and quick search, combined with the development of unmanned equipments, has made search missions by a team of UAVs (unmanned aerial vehicles) in the spotlight.
 The UAVs system searching task focuses on intelligent independent multi-robot systems that make real-time action decisions according to their own surrounding environments, as well as achieve the same high-level goal with collective efforts.
 Navigating in unkonwn environments safely is the underlying work which can support multi-robot systems for more complex tasks.
@@ -99,3 +100,5 @@ However, in unknown environments, frequently real-time interactions with neighbo
 Furthermore, the task cooperation and collision avoid between UAVs are hard to balance.
 This paper proposed a method that UAVs can provide assistances to surrounding UAVs by informing neighbors the status information of them. 
 This kind of status information contains ambient infromation and perceptions of the task which are transfered to reward for easy and convenient transform.
+
+## introduction
