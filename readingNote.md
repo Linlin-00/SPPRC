@@ -100,3 +100,14 @@ with collective efforts.
 Cooperation and collision avoidance are of equal importance for the multirobot system. When a fleet of robotic agents navigates in a shared workspace, there arised another risk that robots may frequently block each other's ways. (Complete Algorithms for Cooperative Pathfinding Problems) Trevor Standley and Richard Korf 
 
 Without details of searching area, a fleet of robotic agents cannot rely on an unified action plan. 
+
+
+
+
+# how to write
+## abstract
+介绍做的是什么，要点在哪里，用什么方法，
+## introduction
+第一段：具体介绍自己做的是什么，以及背景；用到了什么方法，有什么作用，涉及到哪些领域。
+第二段：将第一段提到的不同方法，分别展开，这种方法有什么具体作用（类似于把abstrace拓展，细化）
+第三段：
