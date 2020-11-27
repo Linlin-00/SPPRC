@@ -97,9 +97,9 @@ The increasing need for safe, inexpensive and quick search, combined with the de
 
 with collective efforts.
 ## introduction
-Cooperation and collision avoidance are of equal importance for the multirobot system. When a fleet of robotic agents navigates in a shared workspace, there arised another risk that robots may frequently block each other's ways. (Complete Algorithms for Cooperative Pathfinding Problems) Trevor Standley and Richard Korf 
+Cooperation and collision avoidance are of equal importance for the multirobot system. When a fleet of robotic agents navigates in a shared workspace, there arised another risk that robots may frequently block each other's ways. (Complete Algorithms for Cooperative Pathfinding Problems) Trevor Standley and Richard Korf
 
-Without details of searching area, a fleet of robotic agents cannot rely on an unified action plan. 
+Without a previous knowledge of the searching area, a fleet of robotic agents cannot rely on an unified action plan. 
 
 
 
