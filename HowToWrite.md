@@ -48,3 +48,7 @@ Without a previous knowledge of the searching area, a fleet of robotic agents ca
 5. 实验结果
 6. 实验阐述
 ## 介绍自己的方法（ 前面的预训练结束了，这里开始讲本文提出的框架了）
+还是要先讲背景和相关研究
+1. 介绍方法
+2. 介绍实验设计
+3. 实验结果
