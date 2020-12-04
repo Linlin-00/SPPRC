@@ -4,13 +4,15 @@ Agent's ability to cope with unexpected scenarios is largely determined by the a
 When a robot cannot see another robots, due to the sensor limited and the presence of obstacles, we call this "limited perception".
 In most of prior work, perception of robot is generally omnibearing. 
 Robots are capable of perceiving not only robots all-around, but also precise location of other robots\cite{}.
-\figurename{} shows an example scenario of  limited perception. The rectangle presents an obstacle, and circles are robots. 
+\figurename{} shows an example scenario of  limited perception. The rectangle presents an obstacle, and dots are robots. 
 Sensing field of robot A_1 is a fan-shaped area. As a result, robot A_1 cannot see robot A_3 which is not in the fan-shaped area, and robot A_4 hidden from view by a obstacle.
 
 We define ......(page 18 of AdaptiveSwarmAvoidance)
 
 \subsection{result with limited perception}
+
 matlab的实现晶体的编队和晶体的避障（无障碍全感知，无障碍有限感知，有障碍全感知，有障碍有限感知；agent数量从20，40，60,80,100都尝试一下实验）
 
 做实验：传统势场法避障的机器人群，将它们的全感知改为有限感知
 其他的方法不能够做到的是：在既有一定编队的同时，还能够避障
+\subsection{perception based on the direction of motion}
