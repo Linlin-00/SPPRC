@@ -280,7 +280,7 @@ Step_08中将要使Model在repasthpc下运行起来，这一步要为此奠定�
  	  RepastHPCDemoModel(){}
 	  ~RepastHPCDemoModel(){}
 	  void init(){}
-      //通过initSchedu通过来初始化schedule
+      //通过initSchedule来初始化schedule
 	  void initSchedule(repast::ScheduleRunner& runner){}       
   };
 
